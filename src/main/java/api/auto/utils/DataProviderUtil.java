@@ -1,7 +1,8 @@
-package api.auto.day05;
+package api.auto.utils;
 
-import api.auto.day04.ApiInfo;
-import api.auto.day04.CaseInfo;
+import api.auto.pojo.ApiInfo;
+import api.auto.pojo.CaseInfo;
+import api.auto.pojo.CellData;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,12 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 public class DataProviderUtil {
-    private static List<CellData> dataToWritebackList = new ArrayList<>();
+    private static List<CellData> dataToWriteBackList = new ArrayList<>();
     public static void addCellData(CellData cellData){
-        dataToWritebackList.add(cellData);
+        dataToWriteBackList.add(cellData);
     }
-    public static List<CellData> getDataToWritebackList(){
-        return dataToWritebackList;
+    public static List<CellData> getDataToWriteBackList(){
+        return dataToWriteBackList;
     }
 
     public static Object[][] getTestCaseData(int caseSheetInd,int apiSheetInt){

@@ -1,4 +1,4 @@
-package api.auto.day05;
+package api.auto.pojo;
 
 import lombok.Data;
 

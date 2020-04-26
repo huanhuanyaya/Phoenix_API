@@ -1,5 +1,8 @@
 package api.auto.day04;
 
+import api.auto.pojo.ApiInfo;
+import api.auto.pojo.CaseInfo;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,8 +11,8 @@ public class DataProviderUtil {
 
     public static Object[][] getTestCaseData(int caseSheetInd,int apiSheetInt){
         Object[][] data;
-        List<Object> caseInfoList = ExcelUtil.readExcel_V1("/testdata/APITest_Data.xlsx",caseSheetInd,CaseInfo.class);
-        List<Object> apiInfoList = ExcelUtil.readExcel_V1("/testdata/APITest_Data.xlsx",apiSheetInt,ApiInfo.class);
+        List<Object> caseInfoList = ExcelUtil.readExcel_V1("/testdata/APITest_Data.xlsx",caseSheetInd, CaseInfo.class);
+        List<Object> apiInfoList = ExcelUtil.readExcel_V1("/testdata/APITest_Data.xlsx",apiSheetInt, ApiInfo.class);
         Map<String,ApiInfo> apiInfoMap = new HashMap<>();
         data = new Object[caseInfoList.size()][];
         for (int i = 0; i< caseInfoList.size(); i++) {

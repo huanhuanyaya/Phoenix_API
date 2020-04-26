@@ -1,6 +1,5 @@
-package api.auto.day04;
+package api.auto.pojo;
 
-import api.auto.day05.ExcelObject;
 import lombok.Data;
 
 /**

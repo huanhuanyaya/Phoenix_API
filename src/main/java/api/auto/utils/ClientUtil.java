@@ -1,6 +1,6 @@
-package api.auto.day05;
+package api.auto.utils;
 
-import api.auto.day04.CaseInfo;
+import api.auto.pojo.CaseInfo;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;

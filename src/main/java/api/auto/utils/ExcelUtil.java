@@ -1,6 +1,8 @@
-package api.auto.day05;
+package api.auto.utils;
 
-import api.auto.day04.CaseInfo;
+import api.auto.pojo.CaseInfo;
+import api.auto.pojo.CellData;
+import api.auto.pojo.ExcelObject;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.util.StringUtil;
 

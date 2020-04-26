@@ -1,8 +1,10 @@
-package api.auto.day04;
+package api.auto.cases;
 
-import api.auto.day05.CellData;
-import api.auto.day05.ExcelUtil;
-import api.auto.day05.DataProviderUtil;
+import api.auto.utils.ClientUtil;
+import api.auto.pojo.CellData;
+import api.auto.utils.ExcelUtil;
+import api.auto.utils.DataProviderUtil;
+import api.auto.pojo.CaseInfo;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.DataProvider;
@@ -37,7 +39,8 @@ public class All_TestCase {
     @AfterSuite
     public void afterSuite(){
         //收集测试结果数据,回写到excel表格中
-        List<CellData> testResultList = DataProviderUtil.getDataToWritebackList();
+        List<CellData> testResultList = DataProviderUtil.getDataToWriteBackList();
+        //TODO:将文件目录用properties文件处理一下,解决下硬编码
         ExcelUtil.batchWriteBackToExcel("/testdata/APITest_Data.xlsx","/target/classes/testdata/APITest_Data.xlsx",1,testResultList);
     }
 
