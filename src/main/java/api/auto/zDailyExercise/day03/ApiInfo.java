@@ -1,4 +1,4 @@
-package api.auto.day03;
+package api.auto.zDailyExercise.day03;
 
 import lombok.Data;
 

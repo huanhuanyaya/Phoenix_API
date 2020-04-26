@@ -1,4 +1,4 @@
-package api.auto.day04;
+package api.auto.zDailyExercise.day04;
 
 import api.auto.pojo.ApiInfo;
 import api.auto.pojo.CaseInfo;

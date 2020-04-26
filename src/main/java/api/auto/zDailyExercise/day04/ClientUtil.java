@@ -1,5 +1,7 @@
-package api.auto.day03;
+package api.auto.zDailyExercise.day04;
 
+import api.auto.pojo.CaseInfo;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -12,10 +14,7 @@ import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class ClientUtil {
 
@@ -63,7 +62,18 @@ public class ClientUtil {
             e.printStackTrace();
         }
         return "";
+    }
 
 
+    public static String get(CaseInfo caseInfo){
+        HashMap<String,String> parameterMap = (HashMap<String, String>) JSONObject.parse(caseInfo.getRequestParams());
+        String url = caseInfo.getApiInfo().getUrl();
+        return get(url,parameterMap);
+    }
+
+    public static String post(CaseInfo caseInfo){
+        HashMap<String,String> parameterMap = (HashMap<String, String>) JSONObject.parse(caseInfo.getRequestParams());
+        String url = caseInfo.getApiInfo().getUrl();
+        return post(url,parameterMap);
     }
 }

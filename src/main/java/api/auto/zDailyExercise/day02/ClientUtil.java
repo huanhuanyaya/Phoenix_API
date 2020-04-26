@@ -1,4 +1,4 @@
-package api.auto.day02;
+package api.auto.zDailyExercise.day02;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
