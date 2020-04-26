@@ -51,7 +51,7 @@ public class ExcelUtil {
             closeFlow(is,book,os);
         }
     }
-
+    @Deprecated
     public static void batchWriteBackToExcel(String sourcePath,String targetPath, int sheetInd,List<CellData> testResultList) {
         InputStream is = null;
         Workbook book = null;
@@ -69,6 +69,46 @@ public class ExcelUtil {
                 cell.setCellType(CellType.STRING);
                 cell.setCellValue(contentValue);
 
+            }
+            os = new FileOutputStream(new File(targetPath));
+            book.write(os);
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            closeFlow(is,book,os);
+        }
+    }
+
+    public static void batchWriteBackToExcel(String sourcePath,String targetPath) {
+        InputStream is = null;
+        Workbook book = null;
+        OutputStream os = null;
+        try {
+            is = new FileInputStream(new File(sourcePath));
+            book = WorkbookFactory.create(is);
+            //回写case执行结果
+            Sheet caseSheet = book.getSheetAt(1);
+            List<CellData> caseResultList = DataProviderUtil.getDataToWriteBackList();
+            for (CellData testResult: caseResultList) {
+                int rowNo = testResult.getRowNum();
+                int cellNo = testResult.getCellNum();
+                String contentValue = testResult.getContent();
+                Row currentRow = caseSheet.getRow(rowNo - 1);
+                Cell cell = currentRow.getCell(cellNo - 1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                cell.setCellType(CellType.STRING);
+                cell.setCellValue(contentValue);
+            }
+            //回写sql验证结果
+            Sheet sqlSheet = book.getSheetAt(3);
+            List<CellData> sqlResultList = DataProviderUtil.getSqlToWriteBackList();
+            for (CellData testResult: sqlResultList) {
+                int rowNo = testResult.getRowNum();
+                int cellNo = testResult.getCellNum();
+                String contentValue = testResult.getContent();
+                Row currentRow = sqlSheet.getRow(rowNo - 1);
+                Cell cell = currentRow.getCell(cellNo - 1, Row.MissingCellPolicy.CREATE_NULL_AS_BLANK);
+                cell.setCellType(CellType.STRING);
+                cell.setCellValue(contentValue);
             }
             os = new FileOutputStream(new File(targetPath));
             book.write(os);
@@ -153,6 +193,7 @@ public class ExcelUtil {
         }
     }
 
+    @Deprecated
     public static Object[][] readExcel(String excelPath, int sheetInd) {
         Object[][] excelDataArray = null;
         InputStream inputStream = null;

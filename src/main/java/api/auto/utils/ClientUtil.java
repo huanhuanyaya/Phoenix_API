@@ -68,14 +68,28 @@ public class ClientUtil {
 
 
     public static String get(CaseInfo caseInfo){
-        HashMap<String,String> parameterMap = (HashMap<String, String>) JSONObject.parse(caseInfo.getRequestParams());
+        Map<String,String> parameterMap = (Map<String, String>) JSONObject.parse(caseInfo.getRequestParams());
         String url = caseInfo.getApiInfo().getUrl();
         return get(url,parameterMap);
     }
 
     public static String post(CaseInfo caseInfo){
-        HashMap<String,String> parameterMap = (HashMap<String, String>) JSONObject.parse(caseInfo.getRequestParams());
+        Map<String,String> parameterMap = (Map<String, String>) JSONObject.parse(caseInfo.getRequestParams());
         String url = caseInfo.getApiInfo().getUrl();
         return post(url,parameterMap);
     }
+
+    public static String request(CaseInfo caseInfo){
+        String type = caseInfo.getApiInfo().getType();
+        String result = "";
+        if("get".equalsIgnoreCase(type)){
+            result = get(caseInfo);
+            logger.info("以get请求方式发送请求: "+caseInfo.getApiInfo().getName());
+        }else if("post".equalsIgnoreCase(type)){
+            result = post(caseInfo);
+            logger.info("以post请求方式发送请求: "+caseInfo.getApiInfo().getName());
+        }
+        return result;
+    }
+
 }

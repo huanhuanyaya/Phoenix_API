@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 
 import java.util.List;
 
-public class All_TestCase {
+public class post_get_test {
 
     @DataProvider
     public Object[][] getTestData(){
@@ -40,7 +40,6 @@ public class All_TestCase {
     public void afterSuite(){
         //收集测试结果数据,回写到excel表格中
         List<CellData> testResultList = DataProviderUtil.getDataToWriteBackList();
-        //TODO:将文件目录用properties文件处理一下,解决下硬编码
         ExcelUtil.batchWriteBackToExcel("/testdata/APITest_Data.xlsx","/target/classes/testdata/APITest_Data.xlsx",1,testResultList);
     }
 
