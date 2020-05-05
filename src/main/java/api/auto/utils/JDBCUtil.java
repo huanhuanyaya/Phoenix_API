@@ -1,12 +1,6 @@
 package api.auto.utils;
-
-import api.auto.cases.All_TestRequest;
-
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class JDBCUtil {
     private static String url;
@@ -66,9 +60,9 @@ public class JDBCUtil {
      * @param parameters
      * @return
      */
-    public static List<HashMap<String,String>> query(String sql,String... parameters){
-
-        List<HashMap<String,String>> allRecordsByQuery = null;
+    public static List<LinkedHashMap<String,String>> query(String sql, String... parameters){
+        //需要有序的结果,以便与预期结果进行比对
+        List<LinkedHashMap<String,String>> allRecordsByQuery = null;
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
@@ -83,9 +77,10 @@ public class JDBCUtil {
             int columnCount = metaData.getColumnCount();
             allRecordsByQuery = new ArrayList<>();
             while (resultSet.next()){
-                HashMap<String,String> recordMap = new HashMap<>();
+                LinkedHashMap<String,String> recordMap = new LinkedHashMap<>();
                 for(int i = 1;i <= columnCount;i++){
-                    String columnName = metaData.getColumnName(i);
+                    //别名
+                    String columnName = metaData.getColumnLabel(i);
                     String value = resultSet.getString(i);
                     recordMap.put(columnName,value);
                 }

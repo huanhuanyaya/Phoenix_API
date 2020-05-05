@@ -164,7 +164,10 @@ public class ExcelUtil {
                     cell.setCellType(CellType.STRING);
                     String setterName = "set" + filedArray[j];
                     Method method = clazz.getMethod(setterName,String.class);
-                    method.invoke(sheetData,cell.getStringCellValue());
+                    //读取到用例参数的列时,将参数中的某些参数通过正则匹配进行替换
+                    String cellValue = ParameterUtil.getReplaceStr(cell.getStringCellValue());
+                    method.invoke(sheetData,cellValue);
+
                 }
                 excelDataList.add(sheetData);
             }
