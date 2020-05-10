@@ -3,7 +3,6 @@ package api.auto.cases;
 import api.auto.pojo.CaseInfo;
 import api.auto.pojo.CellData;
 import api.auto.utils.*;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
