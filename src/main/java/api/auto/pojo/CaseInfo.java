@@ -17,4 +17,10 @@ public class CaseInfo extends ExcelObject {
     private List<SQLInfo> beforeSqlList;
     private List<SQLInfo> afterSqlList;
     private ApiInfo apiInfo;
+    private String testResult;
+    private String sqlCheckResult;
+    private String reqHeader;
+    private String respHeader;
+    private String extractRespData;
+    private String assertKeyInfo;
 }

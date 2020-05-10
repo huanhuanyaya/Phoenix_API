@@ -188,6 +188,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/pojo/AssertKeyInfoObject.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/api/auto/pojo/CaseInfo.java">
           <value>
             <set />
@@ -203,7 +208,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/pojo/ExtractRespDataObject.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/pojo/HeaderOpt.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/main/java/api/auto/pojo/SQLInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/utils/AssertUtil.java">
           <value>
             <set />
           </value>
@@ -229,6 +249,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/main/java/api/auto/utils/JDBCUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/utils/ParameterUitl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/utils/ParameterUtil.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/main/java/api/auto/utils/StringUtil.java">
           <value>
             <set />
           </value>

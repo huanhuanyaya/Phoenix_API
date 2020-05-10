@@ -15,7 +15,8 @@ public class DatabaseCheckUtil {
             return;
         }
         for (SQLInfo sqlInfo:beforeSqlList) {
-            String sql = sqlInfo.getSql();
+            //对sql中的参数化的字段替换成实际的参数
+            String sql = ParameterUtil.getReplaceStr(sqlInfo.getSql());
             String expectResult = sqlInfo.getExpectedResult();
             List<LinkedHashMap<String, String>> actualResult = JDBCUtil.query(sql);
             String actualResultStr = JSONObject.toJSONString(actualResult);
@@ -35,7 +36,7 @@ public class DatabaseCheckUtil {
         }
         Boolean flag = true;
         for (SQLInfo sqlInfo:afterSqlList) {
-            String sql = sqlInfo.getSql();
+            String sql = ParameterUtil.getReplaceStr(sqlInfo.getSql());
             String expectResult = sqlInfo.getExpectedResult();
             List<LinkedHashMap<String, String>> actualResult = JDBCUtil.query(sql);
             String actualResultStr = JSONObject.toJSONString(actualResult);
